@@ -46,6 +46,7 @@ print()
 
 //№3
 
+
 var vklad: Double = 100000
 let proc: Double = 11.5
 
