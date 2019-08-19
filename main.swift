@@ -2,56 +2,65 @@ import Foundation
 
 //№1
 
-var a: Double = 2
-var b: Double = 3
-var c: Double = -4
-
-let dis: Double = pow(b,2)-4*a*c
-
-let x1: Double
-let x2: Double
-
-if dis > 0 {
-    x1 = (-b - sqrt(dis)) / 2 * a
-    x2 = (-b + sqrt(dis)) / 2 * a
-    print("Первый корень:",x1)
-    print("Второй корень:", x2)
+func chT(num: Int) -> Bool{
+    if (num % 2 == 0){
+        print("Число четное")
+        return true
+    }
+    else{
+        print("Число нечетное")
+        return false
+    }
 }
-
-else if dis == 0 {
-    print("x1=x2")
-    x1 = -b / 2 * a
-    x2 = x1
-    print(x1)
-}
-
-else {
-    print("Корней нет!")
-}
+chT(num: 11)
 
 //№2
-
-a = 6
-b = 4
-
-c = sqrt(a*a + b*b)
-print()
-print("Гипотенуза равна:",c)
-
-let P: Double = a+b+c
-print("Периметр равен:",P)
-let S: Double = a*b/2
-print("Площадь равна:",S)
-print()
+func del3(num: Int) -> Bool{
+    if (num % 3 == 0){
+        print("Число делится на 3")
+        return true
+    }
+    else{
+        print("Число не делится на 3")
+        return false
+    }
+}
+del3(num: 33)
 
 //№3
+ var array: [Int] = []
 
-
-var vklad: Double = 100000
-let proc: Double = 11.5
-
-for i in 1...5 {
-    vklad = vklad + vklad*(proc/100)
+for i in 1...100{
+    array.append(i)
 }
-print("Сумма вклада через 5 лет:",vklad)
+//№4
+//Изначально идея была такая, но выводилась ошибка переполнения массива, компилятор почему-то сравнивал только по первому условию, а второе игнорировал и тк чт. эллементов 50, при взятии диапазона больше 50, счетчик выходит за пределы массива. Итак, вопрос: почему второе условие в if не обрабатывается?
 
+//for i in 0...99{
+//    if(array[i] % 2 == 0) || (array[i] % 3 == 0){
+//        array.remove(at: i)
+//    }
+//}
+//print(array)
+
+var array1 = array.filter({$0 % 2 != 0})
+var array2 = array1.filter({$0 % 3 != 0})
+
+//Вопрос: можно ли в фильтре задать несколько условий через те же самые && ,||?
+//p.s. и как это по синтаксису сделать?
+
+array = array2
+print(array)
+
+//№5
+
+func fib(ch: Int) -> Int{
+    var mass: [Int] = [1, 2]
+    for i in 2...99{
+    mass.append(mass[i - 1] + mass[i-2])
+    }
+    return mass
+}
+// Тут я попробовал сделать 5, но у меня что-то не выводит, ругается из-за несоответствия типов ретерна...
+
+//6 уже не успеваю сдать, для себя его обязательно разберу и задам вопросы, если появятся
